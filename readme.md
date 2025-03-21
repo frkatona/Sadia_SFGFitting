@@ -2,7 +2,9 @@
 
 This Python script fits experimental Sum-Frequency Generation (SFG) spectral data using a model composed of Lorentzian-Gaussian hybrid peaks, along with background terms. It uses non-linear least-squares optimization to extract the parameters that best represent the data.
 
-![alt text](exports/figure.png)
+### 📊 Example Output
+
+![example fit](exports/figure.png)
 ---
 
 ## 📁 Files

@@ -14,14 +14,16 @@ p = params_df['parameter'].values
 p_lb = params_df['lower_bound'].values
 p_ub = params_df['upper_bound'].values
 
-#! edited original data:
-# '-0.5, -1, 2' was originally '-0.5, 1, 2' and idk if this is the appropriate change
-
 num_peaks = (len(p) - 2) // 4
+
+# === Troubleshooting ===
 
 for i, (val, lb, ub) in enumerate(zip(p, p_lb, p_ub)):
     if not (lb <= val <= ub):
         print(f"❌ Parameter {i}: {val} is outside bounds [{lb}, {ub}]")
+
+#! note:
+# I edited a line of the original parameters/bounds: '-0.5, -1, 2' was originally '-0.5, 1, 2' and idk if this is the appropriate change
 
 
 # === Function Definitions ===
