@@ -9,7 +9,7 @@ This Python script fits experimental Sum-Frequency Generation (SFG) spectral dat
 
 ## 📁 Files
 
-- `fit_sfg.py` — Main script that performs the fit, plots results, and exports data.
+- `SFG_fitter.py` — Main script that performs the fit, plots results, and exports data.
 - `data.csv` — Input data file containing two tab-separated columns: `x` (frequency) and `y` (intensity).
 - `parameters.csv` — Input parameter file with initial values, bounds, and labels.
 - `fit_output.csv` — Output file containing original data, predicted fit, and individual peak contributions.
@@ -113,6 +113,7 @@ Make sure `data.csv` and `parameters.csv` are in the same directory.
 
 ## 🧠 Notes
 
+- To use CSVs stored in a different directory, modify the file paths in the script using their absolute paths.
 - The parameter bounds are enforced during optimization.
 - If any initial parameter is out of bounds, a warning is printed.
 - Peak components are summed in complex space and squared in magnitude to get intensity.
