@@ -54,7 +54,7 @@ The values in the Parameter column are used as initial guesses for the optimizat
 
 Note that when the Parameter value falls outside of its corresponding bounds, an error is printed to the terminal describing which value to address.
 
-Also note that the number of peaks is determined automatically within the script with the variable `num_peaks`. Conversely, the optimization cycles are a set value of 50, but this can be changed in the script if desired.
+Also note that the number of peaks is determined automatically within the script with the variable `num_peaks`. Conversely, the optimization cycles are a set value of 50, but this can be changed in the script if desired.  Along with parameter values and bounds, modification of this is the primary means of influencing the fit when it appears poor.
 
 ---
 
