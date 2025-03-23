@@ -1,6 +1,6 @@
 # SFG Spectrum Fitting with Lorentzian-Gaussian Peaks
 
-This Python script fits experimental Sum-Frequency Generation (SFG) spectral data using a model composed of Lorentzian-Gaussian hybrid peaks, along with background terms. It uses non-linear least-squares optimization to extract the parameters that best represent the data.
+This Python script fits experimental Sum-Frequency Generation (SFG) spectral data using a model composed of Lorentzian-Gaussian hybrid peaks. It uses non-linear least-squares optimization to extract the parameters that best represent the data, outputting a plot of the results as well as a fit report CSV.
 
 ### 📊 Example Output
 
@@ -48,17 +48,17 @@ The file includes four columns:
 | ...             | ...    | ...        | ...        |
 | ...             | ...    | ...        | ...        |
 
-Note that after the first two parameters (Offset and Nonresonant background), the following values are grouped in sets of four.  Each represents the Gaussian-Lorentzian profile parameters for a distinct peak:
-  - Amplitude
-  - Center
-  - Tau
-  - Sigma
+Note that after the first two parameters (Offset and Nonresonant background), the following values are grouped in sets of four.  Each represents the Gaussian-Lorentzian profile parameters for a distinct peak, as discussed in the model description above.
 
-The script uses the values in the Parameter column as initial guesses for the optimization. The Lower Bound and Upper Bound columns define the constraints for each parameter during the fitting process.
+The values in the Parameter column are used as initial guesses for the optimization. The Lower Bound and Upper Bound columns define the constraints for each parameter during the fitting process.
+
+Note that when the Parameter value falls outside of its corresponding bounds, an error is printed to the terminal describing which value to address.
+
+Also note that the number of peaks is determined automatically within the script with the variable `num_peaks`. Conversely, the optimization cycles are a set value of 50, but this can be changed in the script if desired.
 
 ---
 
-## 🔁 Workflow
+## 🔁 Script Workflow
 
 1. Load experimental data (`data.csv`)
 2. Load initial parameters and bounds (`parameters.csv`)
