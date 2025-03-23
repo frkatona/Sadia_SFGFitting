@@ -36,28 +36,25 @@ When `Sigma <= 10`, the peak is treated as purely Lorentzian for computational e
 
 The file includes four columns:
 
-```
-parameter,lower_bound,upper_bound,parameter_label
-```
+| Parameter Label         | Parameter | Lower Bound | Upper Bound |
+|-------------------------|-----------|-------------|-------------|
+| Offset                  | 0         | 0           | 1           |
+| Nonresonant background  | 0.1       | -0.2        | 0.2         |
+| Peak1 Amplitude         | 0         | -1          | 1           |
+| Peak1 Center            | 2850.6    | 2845        | 2860        |
+| Peak1 Tau               | 14.3      | 0           | 20          |
+| Peak1 Sigma             | 0         | 0           | 1e-15       |
+| Peak2 Amplitude         | -0.4      | -1          | 2           |
+| ...             | ...    | ...        | ...        |
+| ...             | ...    | ...        | ...        |
 
-For example:
-
-```
-0,0,1,Offset
-0.1,-0.2,0.2,Nonresonant background
--0.4,-1,2,Peak1 Amplitude
-2878.1,2875,2885,Peak1 Center
-...
-```
-
-- The first two parameters are always:
-  - Offset
-  - Nonresonant background
-- Every 4 parameters after that define one peak:
+Note that after the first two parameters (Offset and Nonresonant background), the following values are grouped in sets of four.  Each represents the Gaussian-Lorentzian profile parameters for a distinct peak:
   - Amplitude
   - Center
   - Tau
   - Sigma
+
+The script uses the values in the Parameter column as initial guesses for the optimization. The Lower Bound and Upper Bound columns define the constraints for each parameter during the fitting process.
 
 ---
 
@@ -103,8 +100,10 @@ pip install numpy pandas matplotlib scipy
 
 ## ▶️ Running the Script
 
+Open the script's root folder in a code editor like VS Code and run it.  To run from the command line, open a terminal in the script's root folder and execute:
+
 ```bash
-python fit_sfg.py
+python SFG_fitter.py
 ```
 
 Make sure `data.csv` and `parameters.csv` are in the same directory.
