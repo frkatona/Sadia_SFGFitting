@@ -116,3 +116,8 @@ Make sure `data.csv` and `parameters.csv` are in the same directory.
 - The parameter bounds are enforced during optimization.
 - If any initial parameter is out of bounds, a warning is printed.
 - Peak components are summed in complex space and squared in magnitude to get intensity.
+
+## to-do
+
+- [ ] investigate why peak 5 is so small (indeed, eliminating it does not seem to affect the fit by eye)
+- [x] add a residuals-vs-iteration plot

@@ -81,13 +81,32 @@ def residual_func(params, x, y):
 # === Optimization Loop ===
 
 n_cycles = 50
+residuals_list = []
+
 for i in range(n_cycles):
     print(f'******** Starting optimization cycle #{i+1} ********')
     result = least_squares(residual_func, p, args=(x, y), bounds=(p_lb, p_ub),
                            max_nfev=500000, ftol=1e-9)
     p = result.x
     rel_error, residuals = relative_residual(SFG_signal_sum(p, x), y)
+    residuals_list.append(residuals)
     print(f'Relative error = {rel_error:.6f}')
+
+# Plotting residuals over cycles
+plt.figure(figsize=(10, 6))
+colors = plt.cm.plasma(np.linspace(0, 1, n_cycles))
+
+for i in range(n_cycles):
+    plt.plot(x, residuals_list[i], color=colors[i], label=f'Cycle {i+1}')
+
+fontsize = 25
+plt.xlabel('frequency (cm⁻¹)', fontsize=fontsize)
+plt.ylabel('residuals', fontsize=fontsize)
+plt.xticks(fontsize=fontsize)
+plt.yticks(fontsize=fontsize)
+plt.title('Residuals over Optimization Cycles', fontsize=fontsize)
+# plt.colorbar(plt.cm.ScalarMappable(cmap='plasma'), label='Cycle')
+plt.tight_layout()
 
 # === Final fit and individual peaks ===
 
@@ -104,11 +123,9 @@ for i in range(num_peaks):
 
 # === Plotting ===
 
-fontsize = 30
 plt.figure(figsize=(10, 6))
-plt.plot(x, y, color='#c1121f', marker='o', label='Data', markersize=7)
-plt.plot(x, y_predicted, color='#03045e', label='Fit', linewidth=4, alpha=0.9)
-
+plt.scatter(x, y, color='#d23838', label='Data', s=30)
+plt.plot(x, y_predicted, color='#03045e', label='fit', linewidth=4, alpha=0.9)
 
 # colors = ['r', 'g', 'c', 'm', 'y', 'k']
 colors = plt.cm.viridis(np.linspace(0, 1, num_peaks))
@@ -117,12 +134,15 @@ for i in range(num_peaks):
     plt.plot(x, peaks[:, i], '--', label=f'Peak {i+1}', color=colors[i % len(colors)])
 
 plt.legend()
-plt.xlabel('Frequency (cm⁻¹)', fontsize=fontsize)
-plt.ylabel('Signal Intensity', fontsize=fontsize)
+plt.xlabel('frequency (cm⁻¹)', fontsize=fontsize)
+plt.ylabel('signal intensity', fontsize=fontsize)
 plt.xticks(fontsize=fontsize)
 plt.yticks(fontsize=fontsize)
 # plt.title('SFG Fit and Components')
 plt.tight_layout()
+
+
+
 plt.show()
 
 # === Save Output ===
