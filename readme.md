@@ -121,3 +121,17 @@ Make sure `data.csv` and `parameters.csv` are in the same directory.
 
 - [ ] investigate why peak 5 is so small (indeed, eliminating it does not seem to affect the fit by eye)
 - [x] add a residuals-vs-iteration plot
+- [x] investigate effects of increased optimization cycles (50 -> 10,000 goes from a relative error of 0.072250 to 0.068215—see figures below)
+
+### 📊 decomposition with increased optimization cycles (50 -> 10k)
+
+![alt text](exports/figure_10k-optimized.png)
+
+
+### 📊 residuals with increased optimization cycles (50 -> 10k)
+
+![alt text](exports/residuals_10k-optimized.png)
+
+### 📊 ^ closeup on arbitrary region to illustrate scale of change
+
+![alt text](exports/residuals_10k-optimized_closeup.png)

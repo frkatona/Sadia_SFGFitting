@@ -104,8 +104,8 @@ plt.xlabel('frequency (cm⁻¹)', fontsize=fontsize)
 plt.ylabel('residuals', fontsize=fontsize)
 plt.xticks(fontsize=fontsize)
 plt.yticks(fontsize=fontsize)
-plt.title('Residuals over Optimization Cycles', fontsize=fontsize)
-# plt.colorbar(plt.cm.ScalarMappable(cmap='plasma'), label='Cycle')
+plt.title('residuals over optimization cycles', fontsize=fontsize)
+plt.legend()
 plt.tight_layout()
 
 # === Final fit and individual peaks ===
