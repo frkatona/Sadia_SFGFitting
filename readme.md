@@ -125,13 +125,17 @@ Make sure `data.csv` and `parameters.csv` are in the same directory.
 
 ### 📊 decomposition with increased optimization cycles (50 -> 10k)
 
-![alt text](exports/figure_10k-optimized.png)
+![10k optimized decomposition](exports/figure_10k-optimized.png)
 
 
 ### 📊 residuals with increased optimization cycles (50 -> 10k)
 
-![alt text](exports/residuals_10k-optimized.png)
+![10k optimized residuals](exports/residuals_10k-optimized.png)
 
 ### 📊 ^ closeup on arbitrary region to illustrate scale of change
 
-![alt text](exports/residuals_10k-optimized_closeup.png)
+![10k optimized residuals closeup](exports/residuals_10k-optimized_closeup.png)
+
+- [x] investigate the effects of removing the lorentzian simplification (time increase is comparable to the 50 --> 10k optimization cycle increase and also does not appear to drastically affect the fit)
+
+![figure without pure lorentzians](exports/figure_no-pure-lorentzians.png)
