@@ -25,12 +25,10 @@ for i, (val, lb, ub) in enumerate(zip(p, p_lb, p_ub)):
 #! note:
 # I edited a line of the original parameters/bounds: '-0.5, -1, 2' was originally '-0.5, 1, 2' and idk if this is the appropriate change
 
-
 # === Function Definitions ===
 
 def SFG_Lorentzian(A, wr, w, Tau):
     return A / (w - wr + 1j * Tau)
-
 
 def SFG_Lorentzian_Gaussian(A, wr, w, Tau, sigma):
     if sigma <= 10:
@@ -141,7 +139,7 @@ plt.yticks(fontsize=fontsize)
 # plt.title('SFG Fit and Components')
 plt.tight_layout()
 
-
+plt.savefig('fit_plot.png', dpi=300)
 
 plt.show()
 

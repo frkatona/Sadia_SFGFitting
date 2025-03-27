@@ -28,7 +28,7 @@ The model consists of:
   - **Tau**: Linewidth
   - **Sigma**: Gaussian broadening
 
-When `Sigma <= 10`, the peak is treated as purely Lorentzian for computational efficiency.
+When `Sigma <= 10`, the peak is treated as purely Lorentzian for computational efficiency.  Note that with the example parameters, this will be true for all peaks (~85,000)
 
 ---
 
@@ -138,4 +138,12 @@ Make sure `data.csv` and `parameters.csv` are in the same directory.
 
 - [x] investigate the effects of removing the lorentzian simplification (time increase is comparable to the 50 --> 10k optimization cycle increase and also does not appear to drastically affect the fit)
 
+### 📊 fit plot - forced lorentian-gaussian (no pure lorentzians)
+
 ![figure without pure lorentzians](exports/figure_no-pure-lorentzians.png)
+
+- [x] investigate implementation of a pseudo-voigt with broader parameter bounds (I created a `testbench.py` along with a `parameters_test.csv` file to make a new graph -> it produces what appears to be a better fit, though I'm not familiar enough with SFG to tell if the broad negative peaks are physically realistic, nor do I yet understand why some peaks contain little horns at their center...certainly there are clues in the fit statistics)
+
+### 📊 fit plot - pseudo voigt implementation v1
+
+![fit plot pseudo voigt](exports/fit_plot_pseudo_voigt.png)
