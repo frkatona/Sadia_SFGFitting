@@ -147,3 +147,9 @@ Make sure `data.csv` and `parameters.csv` are in the same directory.
 ### 📊 fit plot - pseudo voigt implementation v1
 
 ![fit plot pseudo voigt](exports/fit_plot_pseudo_voigt.png)
+
+- [x] fine tune the pseudo-voigt implementation (the fit stats are horrible but the peaks seem more reasonable than any previous attempts)
+
+### 📊 fit plot - pseudo voigt implementation v2
+
+![alt text](exports/fit_plot_PV-AIC.png)

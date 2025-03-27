@@ -75,8 +75,8 @@ for i in range(num_peaks):
 
 # === Plot results ===
 plt.figure(figsize=(10, 6))
-plt.scatter(x, y, color='red', label='Data', s=20)
-plt.plot(x, y_predicted, color='blue', label='Fit', linewidth=2)
+plt.scatter(x, y, color='#d23838', label='Data', s=20)
+plt.plot(x, y_predicted, color='#03045e', label='Fit', linewidth=3, alpha=0.8)
 
 colors = plt.cm.viridis(np.linspace(0, 1, num_peaks))
 for i in range(num_peaks):
