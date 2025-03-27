@@ -152,4 +152,4 @@ Make sure `data.csv` and `parameters.csv` are in the same directory.
 
 ### 📊 fit plot - pseudo voigt implementation v2
 
-![alt text](exports/fit_plot_PV-AIC.png)
+![fit plot PV-AIC](exports/fit_plot_PV-AIC.png)
